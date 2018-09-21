@@ -121,10 +121,8 @@ func (c RedisCache) Get(key string, ptrValue interface{}) error {
 }
 
 func generalizeStringSlice(strs []string) []interface{} {
-	ret := make([]interface{}, len(strs))
-	for i, str := range strs {
-		ret[i] = str
-	}
+	ret := make([]interface{}, len(strs)) 
+copy(ret, strs)
 	return ret
 }
 
